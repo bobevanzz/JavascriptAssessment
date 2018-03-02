@@ -3,7 +3,8 @@
 <head>
 	<title></title>
 	<script type="text/javascript">
-			var theNumber = 0
+			var rolls = [];
+			var theNumber = 0;
 			var TotalNumber = 0;
 		function getRandomNumber() {
 			theNumber = Math.floor(Math.random() * 6) + 1;
@@ -30,8 +31,8 @@
 	</script>
 </head>
 <body>
-<button onclick="rollDie()">Pig Dice Game</button>
-<input id="theRoll" type="text" value="0">
+<button OnClick="rollDie()">Pig Dice Game</button>
+<input id="theRoll" type="text">
 <label id="message"></label>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>jQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script lang="javascript">
+        function PlayGame(){
+            var arr = [];
+            var total =0;
+            var die = RollDie();
+            while (die !=1) {
+                arr.push(die);
+                total+=die;
+                die = RollDie();
+            }
+                var labelCtrl = document.getElementById("results");
+                labelCtrl.textContent = arr.join(",")+ " :: "+ total;
+        }
+        function RollDie(){
+            return Math.floor(Math.random() * 6) +1;
+        }
+	</script>
+</head>
+<body>
+    <button OnClick="PlayGame()">Pig Dice Game</button>
+<input id="theRoll" type="text">
+<label id="message"></label>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	theNumber = 0;
+function getRandomNumber() {
+	var die = Math.floor(Math.random() * 6) + 1;
+	var die2 = Math.floor(Math.random() * 6) + 1;
+	theNumber = die + die2;
+	var idCtrl = document.getElementById("theRoll");
+	idCtrl.value = theNumber;	}
+function rollDice() {
+	getRandomNumber();
+	var spanCtrl = document.getElementById("message");
+	var point = 0;
+	if(theNumber == 7 || theNumber ==11) {
+		spanCtrl.textContent = "You won!";
+		return;
+			}else if (theNumber == 2 || theNumber == 3 || theNumber == 12) {
+			spanCtrl.textContent = "You lose!";
+			return;
+			}else {
+				point = theNumber;
+			}
+	getRandomNumber();
+	while(theNumber != 7 && theNumber != point){
+		getRandomNumber();
+	}
+	if(theNumber == 7){
+		spanCtrl.textContent = "You lose!";
+	} else {
+		spanCtrl.textContent = "You won!";
+	}
+}
+	</script>
+</head>
+<style>
+body,h1 {font-weight: bold; font-family: "Raleway", sans-serif;}
+body, html {height: 100%}
+.span {color: white; font-size: 25pt;}
+.p {font-size: 25pt;}
+.bgimg {
+    background-color: blue;
+    background-image: url("http://www.vipcasinorentals.com/wp-content/uploads/2016/06/VIP-Casino-Rentals-Craps-Table.jpg");
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+	<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+		<h1 class="w3-jumbo w3-animate-top">Let's Play Craps!</h1>
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    </div>
+  <div class="w3-display-middle">
+    <p class="p" ><button onclick="rollDice()">Roll the Dice!</button></p>
+<input class="p" id="theRoll" type="text" value="0"><br>
+<span class="span" id="message"></span>
+
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+     <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </div>
+</div>
+</body>
+</html>
