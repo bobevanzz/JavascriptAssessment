@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 	<title></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
-			var theNumber = []
-			var TotalNumber = theNumber.join();
+			var theNumber = 0
+			var TotalNumber = 0;
 		function getRandomNumber() {
 			theNumber = Math.floor(Math.random() * 6) + 1;
 			var idCtrl = document.getElementById("theRoll");
@@ -13,23 +12,25 @@
 			} 
 			function rollDie() {
 			getRandomNumber();
-			if(theNumber == 1) {
-				var spanCtrl = document.getElementById("message");
-				spanCtrl.textContent = "Game Over! Your total was " + TotalNumber;
+			if (theNumber == 1) {
+				var labelCtrl = document.getElementById("message");
+				labelCtrl.textContent = "Game Over! Your total was " + TotalNumber;
 				TotalNumber = 0;
 			}else {
+				var labelCtrl = document.getElementById("message");
+				labelCtrl.textContent = TotalNumber
 				TotalNumber += theNumber
 				display();
 			}
 				}
 		function display() {
-			var spanCtrl = document.getElementById("message");
-			spanCtrl.textContent = TotalNumber +" "+ "Roll Again!";
+			var labelCtrl = document.getElementById("message");
+			labelCtrl.textContent = TotalNumber +" "+ "Roll Again!";
 		}
 	</script>
 </head>
 <body>
-<button onclick="rollDie()">Roll the Die!</button>
+<button onclick="rollDie()">Pig Dice Game</button>
 <input id="theRoll" type="text" value="0">
 <label id="message"></label>
 </body>
